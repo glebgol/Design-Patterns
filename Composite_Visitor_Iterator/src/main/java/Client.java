@@ -18,7 +18,6 @@ public class Client {
         folder.addComponent(new FileComponent("file-3"));
         composite.addComponent(folder);
 
-
         for (var component : composite) {
             component.display();
             component.acceptVisitor(new FileSizeVisitor());
