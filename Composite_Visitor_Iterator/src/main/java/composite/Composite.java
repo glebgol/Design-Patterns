@@ -1,5 +1,8 @@
 package composite;
 
+import visitor.IVisitor;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Composite implements IComponent {
@@ -8,12 +11,19 @@ public class Composite implements IComponent {
 
     public Composite(String folderName) {
         this.folderName = folderName;
+        components = new ArrayList<>();
     }
     @Override
     public void display() {
+        System.out.println("\"" + folderName + "\"");
         for (var component : components) {
             component.display();
         }
+    }
+
+    @Override
+    public void acceptVisitor(IVisitor visitor) {
+        visitor.visit(this);
     }
 
     public void addComponent(IComponent component) {
