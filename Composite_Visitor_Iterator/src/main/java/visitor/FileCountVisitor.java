@@ -12,7 +12,7 @@ public class FileCountVisitor implements IVisitor {
 
     @Override
     public void visit(Composite composite) {
-        final int count = composite.getComponents().size();
+        final int count = composite.getItems().size();
         System.out.println(count);
     }
 }

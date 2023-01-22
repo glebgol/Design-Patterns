@@ -1,11 +1,13 @@
 package composite;
 
+import iterator.CompositeIterator;
 import visitor.IVisitor;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Composite implements IComponent {
+public class Composite implements IComponent, Iterable<IComponent> {
     protected List<IComponent> components;
     protected String folderName;
 
@@ -26,6 +28,11 @@ public class Composite implements IComponent {
         visitor.visit(this);
     }
 
+    @Override
+    public List<IComponent> getItems() {
+        return components;
+    }
+
     public void addComponent(IComponent component) {
         components.add(component);
     }
@@ -34,11 +41,12 @@ public class Composite implements IComponent {
         return components.remove(component);
     }
 
-    public List<IComponent> getComponents() {
-        return components;
-    }
-
     public String getFolderName() {
         return folderName;
+    }
+
+    @Override
+    public Iterator<IComponent> iterator() {
+        return new CompositeIterator(this);
     }
 }
