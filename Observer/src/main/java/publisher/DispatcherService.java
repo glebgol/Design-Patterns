@@ -11,9 +11,13 @@ public class DispatcherService implements IPublisher {
 
     public DispatcherService(List<String> eventTypes) {
         for (var eventType : eventTypes) {
-            observers.put(eventType, new ArrayList<>());
+            addEventType(eventType);
         }
     }
+    public void addEventType(String eventType) {
+        observers.put(eventType, new ArrayList<>());
+    }
+
     @Override
     public void addObserver(String eventType, IObserver observer) {
         observers.get(eventType).add(observer);
