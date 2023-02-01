@@ -1,10 +1,12 @@
+package factorymethods;
+
 import strategies.CashPayment;
 import strategies.IPaymentStrategy;
 import strategies.MasterCardPayment;
 import strategies.VisaCardPayment;
 
-public class PaymentStrategyCreator {
-    public static IPaymentStrategy create(String name) {
+public class PaymentStrategyFactory {
+    public IPaymentStrategy create(String name) {
         String upperCaseName = name.toUpperCase();
         return switch (upperCaseName) {
             case "CASH" -> new CashPayment();

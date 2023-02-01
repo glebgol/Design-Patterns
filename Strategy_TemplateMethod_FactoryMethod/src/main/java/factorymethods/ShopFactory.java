@@ -1,10 +1,12 @@
+package factorymethods;
+
 import shop.EvrooptShop;
 import shop.HitShop;
 import shop.VitalurShop;
 import shop.baseshops.Shop;
 
-public class ShopCreator {
-    public static Shop create(String name) {
+public class ShopFactory {
+    public Shop create(String name) {
         String upperCaseName = name.toUpperCase();
         return switch (upperCaseName) {
             case "VITALUR" -> new VitalurShop();
