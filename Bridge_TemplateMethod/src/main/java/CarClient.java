@@ -1,20 +1,18 @@
-import carbrands.Audi;
-import carbrands.BMW;
-import carbrands.Mercedes;
 import cartypes.Car;
-import cartypes.CrossoverCar;
-import cartypes.HatchbackCar;
-import cartypes.SportCar;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class CarClient {
     public static void main(String[] args) {
-        Car bmwCrossover = new CrossoverCar(new BMW());
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(Config.class);
+
+        Car bmwCrossover = context.getBean("bmwCrossover", Car.class);
         bmwCrossover.run();
 
-        Car audiSportCar = new SportCar(new Audi());
+        Car audiSportCar = context.getBean("audiSportCar", Car.class);
         audiSportCar.run();
 
-        Car mercedesHatchback = new HatchbackCar(new Mercedes());
+        Car mercedesHatchback = context.getBean("mercedesHatchback", Car.class);
         mercedesHatchback.run();
     }
 }
