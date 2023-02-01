@@ -12,6 +12,14 @@
           class="observers.Police">
     </bean>
 
-
+    <bean id="publisher"
+          class="publisher.DispatcherService">
+        <constructor-arg>
+            <list>
+                <value>booom</value>
+                <value>fire!!</value>
+            </list>
+        </constructor-arg>
+    </bean>
 
 </beans>

@@ -1,16 +1,13 @@
 import observers.IObserver;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import publisher.DispatcherService;
 import publisher.IPublisher;
-
-import java.util.List;
 
 public class City {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-        IPublisher publisher = new DispatcherService(List.of("booom", "fire!!"));
+        IPublisher publisher = context.getBean("publisher", IPublisher.class);
 
         IObserver observer1 = context.getBean("ambulance", IObserver.class);
         IObserver observer2 = context.getBean("fireDepartment", IObserver.class);
