@@ -1,3 +1,3 @@
 public enum Event {
-    NORMAL, CONFLICT, DANGER, WAR, ESPIONAGE
+    NORMAL, CONFLICT, DANGER, WAR
 }
