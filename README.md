@@ -12,6 +12,7 @@ Structural patterns:
 3. Composite
 4. Decorator
 5. Proxy
+6. Flyweight
 
 Behaviour patterns:
 1. Iterator
@@ -21,3 +22,6 @@ Behaviour patterns:
 5. Template Method
 6. Command
 7. State
+8. Memento
+9. Chain of responsibilities
+10. Mediator
